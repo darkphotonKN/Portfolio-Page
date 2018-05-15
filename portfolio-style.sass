@@ -1,0 +1,98 @@
+
+$theme-color: #303952
+// width of the individual grid items
+$grid-item-width: 180px
+// with of grid and title attached
+$grid-width: 740px
+
+*
+  padding: 0px
+  margin: 0px
+  box-sizing: border-box
+  font-family: 'Open Sans', sans-serif
+
+
+#main-view
+  width: 100%
+  height: 120vh
+
+  text-align: center
+  position: absolute
+
+  background-color: $theme-color
+
+  #main-title
+    font-size: 27px
+    margin-top: 70px
+    color: #f5cd79
+    width: $grid-width
+    border: 1px solid black
+    background: black
+    margin-left: auto
+    margin-right: auto
+
+
+  .grid
+    display: block
+    width: $grid-width
+    margin-left: auto
+    margin-right: auto
+    text-align: center
+    padding: 10px
+    background-color: grey
+
+    .item
+      display: inline-block
+      margin-top: 0px
+      height: 250px
+      width: $grid-item-width
+      opacity: 0
+      background:
+        position: center
+        size: cover
+
+      &:nth-child(1)
+        background-image: url('1.jpg')
+        width: $grid-item-width*2
+      &:nth-child(2)
+        background-image: url('2.jpg')
+        width: $grid-item-width*2
+      &:nth-child(3)
+        background-image: url('3.jpg')
+        width: $grid-item-width*2
+      &:nth-child(4)
+        background-image: url('4.jpg')
+        width: $grid-item-width*2
+      // Randomly assigning heights
+
+
+    // this styling should be put under the nth-child styles as it will affect those if put before
+    .item.is-visible
+      animation: items 400ms ease-in forwards
+
+
+
+/* animations */
+
+@keyframes items
+  0%
+    transform: translateX(350px)
+    border: none
+  100%
+    transform: translateX(0px) scale3d()
+    opacity: 1
+    border: 2px solid black
+
+@keyframes items2
+  0%
+    transform: translateY(150px) rotateX(180deg)
+    border: none
+  100%
+    transform: translateY(0px) rotateX(0deg)
+    opacity: 1
+    border: 2px solid black
+
+
+
+
+/* Testing */
